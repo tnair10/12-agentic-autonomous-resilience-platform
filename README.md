@@ -154,6 +154,69 @@ The system correctly:
 
 That behavior is intentional: safety policy can override autonomous execution without discarding the incident from long-term learning.
 
+
+## Platform Screenshots
+
+### Observability — Grafana
+
+Live workload, JVM, queue, latency, error, and failure telemetry provide the evidence layer used by the investigation agents.
+
+![Grafana operations overview](docs/images/grafana-operations-overview.png)
+
+Additional failure-specific telemetry:
+
+<p align="center">
+  <img src="docs/images/grafana-failure-signals.png" width="49%" alt="Grafana failure signals">
+  <img src="docs/images/grafana-jvm-gc-signals.png" width="49%" alt="Grafana JVM and GC signals">
+</p>
+
+### Multi-Agent Investigation
+
+The investigation view combines live hypotheses, causal evidence, historical priors, fused confidence, and the resulting safety decision.
+
+![Multi-agent investigation](docs/images/streamlit-investigation.png)
+
+### Temporal and Causal Reasoning
+
+The causal layer reasons about signal ordering and relationships rather than relying only on threshold correlation.
+
+![Temporal and causal reasoning](docs/images/streamlit-causal-graph.png)
+
+### Persistent Incident Memory
+
+Incident history is retained independently from the UI presentation limit. In this validated run, **31 incidents** were retained while the UI displayed the newest **25**.
+
+![Persistent incident memory](docs/images/streamlit-memory.png)
+
+### Risk-Aware Autonomous Remediation
+
+Only allowlisted, low-risk actions can execute automatically after the safety gate approves them.
+
+![Risk-aware remediation](docs/images/streamlit-remediation.png)
+
+### Autonomous Resilience Benchmark
+
+The benchmark exercises all seven supported fault scenarios and records diagnosis, safety, remediation, and recovery evidence.
+
+![Autonomous resilience benchmark](docs/images/streamlit-benchmark.png)
+
+<details>
+<summary>Additional UI views</summary>
+
+#### Operations
+
+![Streamlit operations](docs/images/streamlit-operations.png)
+
+#### Scenario Lab
+
+![Failure scenario lab](docs/images/streamlit-scenario-lab.png)
+
+#### Grounded Local LLM RCA
+
+![Grounded local LLM RCA](docs/images/streamlit-ai-rca.png)
+
+</details>
+
 ## Run the benchmark
 
 With the local workload and monitoring stack already running:
