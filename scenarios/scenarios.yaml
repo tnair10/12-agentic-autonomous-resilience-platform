@@ -1,0 +1,80 @@
+normal:
+  title: Normal Operation
+  severity: none
+  root_cause: none
+  expected_signals: []
+  recommended_action: none
+
+memory_pressure:
+  title: JVM Memory Pressure
+  severity: high
+  root_cause: sustained_heap_growth
+  expected_signals:
+    - heap_usage_increase
+    - latency_increase
+    - queue_depth_increase
+  recommended_action: investigate_heap_growth
+
+gc_storm:
+  title: JVM GC Storm
+  severity: high
+  root_cause: excessive_allocation_rate
+  expected_signals:
+    - gc_activity_increase
+    - latency_increase
+    - retry_increase
+  recommended_action: reduce_allocation_pressure
+
+consumer_lag:
+  title: Consumer Processing Slowdown
+  severity: high
+  root_cause: consumer_processing_degradation
+  expected_signals:
+    - consumer_lag_increase
+    - queue_depth_increase
+    - latency_increase
+  recommended_action: investigate_consumer_capacity
+
+tls_failure:
+  title: TLS Failure Cascade
+  severity: critical
+  root_cause: tls_handshake_failure
+  expected_signals:
+    - tls_failures_increase
+    - retry_increase
+    - consumer_lag_increase
+    - latency_increase
+    - error_rate_increase
+  recommended_action: restore_tls_trust
+
+auth_failure:
+  title: Authentication Failure
+  severity: critical
+  root_cause: authentication_service_failure
+  expected_signals:
+    - authentication_failures_increase
+    - retry_increase
+    - error_rate_increase
+  recommended_action: restore_authentication_service
+
+db_latency:
+  title: Database Latency Cascade
+  severity: critical
+  root_cause: downstream_database_latency
+  expected_signals:
+    - database_latency_increase
+    - request_latency_increase
+    - queue_depth_increase
+    - consumer_lag_increase
+  recommended_action: investigate_database_dependency
+
+retry_storm:
+  title: Retry Storm
+  severity: critical
+  root_cause: uncontrolled_retry_amplification
+  expected_signals:
+    - retry_increase
+    - queue_depth_increase
+    - consumer_lag_increase
+    - latency_increase
+  recommended_action: reduce_retry_amplification

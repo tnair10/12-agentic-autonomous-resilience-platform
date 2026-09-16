@@ -1,0 +1,52 @@
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+
+.DS_Store
+.idea/
+.vscode/
+
+# Local Python/tool caches
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Development backups
+*.bak
+*.bak-*
+.*-backup-*/
+.part3-backup-*/
+.part3-backup-memory25-*/
+.learning-backup-*/
+.all-incidents-backup-*/
+
+# Runtime state
+data/incidents/*.db
+data/incidents/*.db-*
+data/logs/*.jsonl
+data/logs/*.log
+data/logs/*.log.*
+
+# Generated incident artifacts
+results/incidents/*
+!results/incidents/.gitkeep
+
+# Generated benchmark artifacts
+results/benchmarks/*
+!results/benchmarks/.gitkeep
+
+# Keep curated, human-readable validation snapshots in docs/evidence/
+
+
+# Java build artifacts and downloaded dependencies
+services/java-workload/build/
+services/java-workload/lib/*.jar
+
+# Java build artifacts and downloaded dependencies
+services/java-workload/build/
+services/java-workload/lib/*.jar
+
+# Java build artifacts and downloaded dependencies
+services/java-workload/build/
+services/java-workload/lib/*.jar
