@@ -250,12 +250,26 @@ results/benchmarks/
 
 These runtime outputs are intentionally ignored by Git. The repository keeps explicit validation snapshots under `docs/evidence/` instead.
 
+## Open Grafana
+
+With the monitoring stack running, open the Grafana operations dashboard at:
+
+```text
+http://127.0.0.1:3000
+```
+
 ## Run the Streamlit control plane
 
 ```bash
 .venv/bin/python -m streamlit run app/streamlit_app.py \
   --server.address 127.0.0.1 \
   --server.port 8501
+```
+
+Open the Streamlit UI at:
+
+```text
+http://127.0.0.1:8501
 ```
 
 The UI includes:
